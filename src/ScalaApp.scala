@@ -5,8 +5,8 @@ object ScalaApp {
 
   def main(args: Array[String]): Unit ={
     println("Hi")
-    val myList:IList[Int] = new NonEmptyList[Int](Array(1,2,3))
-    print(myList.toString())
+    val myList = new Node(10, new Node(20, new LastNode))
+    print(myList.next.value)
   }
 
 }

@@ -11,6 +11,8 @@ object ScalaApp {
     println(myList.toString())
     println(myList.head)
     println(myList.tail)
+
+    println(myList.map(n => n * 2).toString())
   }
 
 }

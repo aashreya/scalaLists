@@ -18,6 +18,8 @@ trait IList[T] {
 
   override def toString: String = super.toString
 
+  def map[T2](f: T => T2): IList[T2]
+
   //  def add[S >: T](item:S):IList[S]
 
 }

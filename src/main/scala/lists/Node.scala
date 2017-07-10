@@ -18,4 +18,5 @@ class Node[T](val value: T, val next: IList[T]) extends IList[T] {
     next.toString()
   }
 
+  override def map[T2](f: (T) => T2): IList[T2] = new Node[T2](f(value), next.map(f))
 }

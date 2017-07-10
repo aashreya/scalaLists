@@ -17,4 +17,6 @@ class LastNode[T] extends IList[T] {
   override def union(secondList: IList[T]): IList[T] = secondList
 
   override def toString: String = "end"
+
+  override def map[T2](f: (T) => T2): IList[T2] = new LastNode[T2]
 }

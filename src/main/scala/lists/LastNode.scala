@@ -19,4 +19,8 @@ class LastNode[T] extends IList[T] {
   override def toString: String = "end"
 
   override def map[T2](f: (T) => T2): IList[T2] = new LastNode[T2]
+
+  override def unique(): IList[T] = new LastNode[T]
+
+  override def contains(element: T): Boolean = throw new Exception("No element in Last")
 }

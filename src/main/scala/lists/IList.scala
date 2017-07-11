@@ -20,6 +20,10 @@ trait IList[T] {
 
   def map[T2](f: T => T2): IList[T2]
 
+  def unique(): IList[T]
+
+  def contains(element: T): Boolean
+
   //  def add[S >: T](item:S):IList[S]
 
 }

@@ -23,4 +23,9 @@ class LastNode[T] extends IList[T] {
   override def unique(): IList[T] = new LastNode[T]
 
   override def contains(element: T): Boolean = throw new Exception("No element in Last")
+
+  override def fold(acc: T, op: (T, T) => T): T = acc
+
+  override def scan(acc: T, op: (T, T) => T): IList[T] = new LastNode[T]
+
 }

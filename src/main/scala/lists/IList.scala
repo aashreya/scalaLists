@@ -24,6 +24,10 @@ trait IList[T] {
 
   def contains(element: T): Boolean
 
+  def fold(acc: T, op: (T, T) => T): T
+
+  def scan(acc: T, op: (T, T) => T): IList[T]
+
   //  def add[S >: T](item:S):IList[S]
 
 }

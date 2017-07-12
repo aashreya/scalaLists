@@ -36,4 +36,7 @@ class Node[T](val value: T, val next: IList[T]) extends IList[T] {
       new Node[T](value, next)
   }
 
+  override def fold(acc: T, op: (T, T) => T): T = next.fold(op(acc, value), op)
+
+  override def scan(acc: T, op: (T, T) => T): IList[T] = new Node(op(acc, value), next.scan(op(acc, value), op))
 }

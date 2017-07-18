@@ -3,7 +3,7 @@ package main.scala.lists
 /**
   * Created by ashankar on 1/21/17.
   */
-case class LastNode[+T] extends IList[T] {
+case class LastNode[+T]() extends IList[T] {
   def value = throw new Exception("No element in Last")
 
   def next = throw new Exception("Next not found")

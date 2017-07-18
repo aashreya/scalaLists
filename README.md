@@ -1,8 +1,8 @@
-# scalaLists
+# Scala Collections 
 
-Immutable implementation of Lists.
+Immutable implementation of Lists and Binary Search Tree
 
-### Supported options 
+### Supported List options 
 
     - isEmpty
     - tail
@@ -15,3 +15,9 @@ Immutable implementation of Lists.
     - scan(acc: S, op: (S, S) => S): IList[S]
     - reverse()
     - count(elem: S)
+ 
+### Supported BST options
+
+    - insert(item: S)((S, S) => Boolean): Btree[S]
+    - size() : Int
+    - inorder() : Unit

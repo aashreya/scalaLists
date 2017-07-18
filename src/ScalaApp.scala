@@ -1,3 +1,4 @@
+import main.scala.btree.{Empty, NonEmpty}
 import main.scala.lists.{IList, LastNode, Node}
 
 /**
@@ -9,29 +10,41 @@ object ScalaApp {
     println("My Lists")
     val myList = new Node(10, new Node(15, new Node(17, new LastNode)))
     val secList = myList.union(new Node(-1, new Node(15, new Node(-1, new LastNode))))
-
     val list2 = List(1, 2, 3)
-    println(myList.toString())
-    println(myList.head)
-    println(myList.tail)
+    val myTree = NonEmpty(5, Empty(), Empty())
 
-    println(myList.contains(15))
-    println(myList.contains(67))
-    println(secList)
-    println(secList.unique())
-    println(myList.fold(0, (a, b) => a + b))
+    def comp(x: Int, y: Int) = if (x > y) true else false
+
+    val myTree2 = myTree.insert(7)(comp)
+    val myTree3 = myTree2.insert(2)(comp).insert(10)(comp)
+
+    //    println(myList.toString())
+    //    println(myList.head)
+    //    println(myList.tail)
+    //
+    //    println(myList.contains(15))
+    //    println(myList.contains(67))
+    //    println(secList)
+    //    println(secList.unique())
+    //    println(myList.fold(0, (a, b) => a + b))
 
     //    println(secList)
     //    println(myList.scan(0, (x, y) => x + y))
     //    println(maxSubArray(secList))
     //    println(maxSubArray2(secList))
     //    println(myList.map(n => n * 2).toString())
-    println("reverse :")
-    println(myList.reverse())
+    //    println("reverse :")
+    //    println(myList.reverse())
+    //
+    //    println(factorial(5))
+    //    println("Count :")
+    //    println(secList.count(15))
 
-    println(factorial(5))
-    println("Count :")
-    println(secList.count(15))
+    println("Tree Operations : ")
+    println(myTree3.toString())
+    println(myTree3.size())
+    println(myTree3.inorder())
+
   }
 
   def factorial(n: Int): Int = {

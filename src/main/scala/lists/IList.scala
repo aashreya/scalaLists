@@ -36,7 +36,7 @@ trait IList[+T] {
       }
     }
 
-    reverseAcc(new LastNode(), this)
+    reverseAcc(LastNode(), this)
   }
 
   //  def count[T](elem: T): Int

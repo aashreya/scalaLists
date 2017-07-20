@@ -12,8 +12,12 @@ case class Empty[+T]() extends Btree[T] {
 
   override def isEmpty: Boolean = true
 
-  override def toString: String = "last"
+  //  override def toString: String = "last"
 
   override def insert[S >: T](item: S)(lt: (S, S) => Boolean): Btree[S] = NonEmpty(item, Empty(), Empty())
+
+  override def map[R, S >: T](f: (S) => R): Btree[R] = Empty()
+
+  override def find[S >: T](element: S)(lt: (S, S) => Boolean): Boolean = false
 
 }

@@ -15,8 +15,10 @@ object ScalaApp {
 
     def comp(x: Int, y: Int) = if (x > y) true else false
 
+    def max(x: Int, y: Int) = if (x > y) x else y
+
     val myTree2 = myTree.insert(7)(comp)
-    val myTree3 = myTree2.insert(2)(comp).insert(10)(comp)
+    val myTree3 = myTree2.insert(2)(comp).insert(10)(comp).insert(6)(comp).insert(3)(comp)
 
     //    println(myList.toString())
     //    println(myList.head)
@@ -42,8 +44,12 @@ object ScalaApp {
 
     println("Tree Operations : ")
     println(myTree3.toString())
-    println(myTree3.size())
-    println(myTree3.inorder())
+    println(myTree3.find(4)(comp))
+    println(myTree3.maxSum()(max)((x, y) => x + y))
+    //    println(myTree3.size())
+    //    println(myTree3.inorder())
+    //    println(myTree3.map((x: Int) => x * 2).inorder())
+    //    println(myTree3.invert().toString())
 
   }
 

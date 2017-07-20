@@ -21,3 +21,7 @@ Immutable implementation of Lists and Binary Search Tree
     - insert(item: S)((S, S) => Boolean): Btree[S]
     - size() : Int
     - inorder() : Unit
+    - map[R,S >:T](f:S => R) : BTree[R]
+    - invert(): Btree[S]
+    - find[S >: T](element: S): Boolean
+    - maxSum() : Int

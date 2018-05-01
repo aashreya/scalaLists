@@ -15,6 +15,7 @@ Immutable implementation of Lists and Binary Search Tree
     - scan(acc: S, op: (S, S) => S): IList[S]
     - reverse()
     - count(elem: S)
+    - zip[S >: T](other: IList[S])
  
 ### Supported BST options
 
@@ -25,3 +26,4 @@ Immutable implementation of Lists and Binary Search Tree
     - invert(): Btree[S]
     - find[S >: T](element: S): Boolean
     - maxSum() : Int
+    

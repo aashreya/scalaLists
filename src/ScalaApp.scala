@@ -9,6 +9,7 @@ object ScalaApp {
   def main(args: Array[String]): Unit ={
     println("My Lists")
     val myList = new Node(10, new Node(15, new Node(17, new LastNode)))
+    val myList2 = Node(1, Node(2, Node(3, LastNode())))
     val secList = myList.union(new Node(-1, new Node(15, new Node(-1, new LastNode))))
     val list2 = List(1, 2, 3)
     val myTree = NonEmpty(5, Empty(), Empty())
@@ -42,6 +43,12 @@ object ScalaApp {
     //    println("Count :")
     //    println(secList.count(15))
 
+    //List
+    val l = List(1, 2, 3)
+    
+
+    println(myList.zip(myList2).toString())
+
     println("Tree Operations : ")
     println(myTree3.toString())
     println(myTree3.find(4)(comp))
@@ -51,6 +58,43 @@ object ScalaApp {
     //    println(myTree3.map((x: Int) => x * 2).inorder())
     //    println(myTree3.invert().toString())
 
+    //    val list = maxPopulation(List(1995, 1993, 1974, 1990), List(2005, 2007, 1995, 1996))
+    //    println(list)
+    println("word")
+    println(checkWord("ilikefb", List("i", "like", "fb")))
+  }
+
+  def maxPopulation(birth: List[Int], death: List[Int]): List[Int] = {
+
+    val data = birth.zip(death).map(tup => tup._1.until(tup._2).toList) //.reduce(_.intersect(_))
+
+    def getIntersections(list: List[List[Int]]): List[List[Int]] = {
+      list match {
+        case Nil => List()
+        case x :: xs => {
+          val temp = for {
+            l <- xs
+            if x.intersect(l).nonEmpty
+          } yield x.intersect(l)
+          println(temp)
+          if (temp.length > getIntersections(xs).length) temp else getIntersections(xs)
+        }
+      }
+    }
+
+    println("here")
+    getIntersections(data).reduce(_.intersect(_))
+  }
+
+  //ilikefb
+  def checkWord(word: String, dic: List[String]) = {
+    val zipped = word.zipWithIndex
+    val data = for {
+      (s, i) <- zipped
+      c <- i until (zipped.size + 1)
+    } yield if (dic.contains(s)) s else if (dic.contains(word.substring(i, c))) word.substring(i, c) else Nil
+
+    data.filter(d => d != List())
   }
 
   def factorial(n: Int): Int = {

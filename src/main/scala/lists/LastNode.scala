@@ -28,5 +28,7 @@ case class LastNode[+T]() extends IList[T] {
 
   override def scan[S >: T](acc: S, op: (S, S) => S): IList[S] = new LastNode[S]
 
+  override def zip[S >: T](other: IList[S]): IList[(S, S)] = LastNode()
+
   //  override def count[T](elem: T): Int = 0
 }

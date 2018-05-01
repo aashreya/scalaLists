@@ -40,7 +40,11 @@ case class Node[+T](val value: T, val next: IList[T]) extends IList[T] {
 
   override def fold[S >: T](acc: S, op: (S, S) => S): S = next.fold(op(acc, value), op)
 
-  override def scan[S >: T](acc: S, op: (S, S) => S): IList[S] = new Node(op(acc, value), next.scan(op(acc, value), op))
+  override def scan[S >: T](acc: S, op: (S, S) => S): IList[S] = Node(op(acc, value), next.scan(op(acc, value), op))
+
+  override def zip[S >: T](other: IList[S]): IList[(S, S)] = {
+    Node((value, other.value), next.zip(other.next))
+  }
 
   //  override def count[T](elem: T): Int = if()
 }

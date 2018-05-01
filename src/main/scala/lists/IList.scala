@@ -52,6 +52,8 @@ trait IList[+T] {
     countAcc(0, this)
   }
 
+  def zip[S >: T](other: IList[S]): IList[(S, S)]
+
   //  def add[S >: T](item:S):IList[S]
 
 }
